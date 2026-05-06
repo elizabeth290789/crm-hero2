@@ -1,0 +1,517 @@
+<section class="crm-hero-custom">
+  <div class="crm-hero-inner">
+    <div class="crm-hero-content">
+      <a
+        href="https://json.tv/analytic/analiz-populyarnosti-crm-na-rossijskom-rynke/"
+        target="_blank"
+        rel="noopener"
+        class="crm-badge"
+      >
+        ☆ CRM №1 в России
+      </a>
+
+      <h1>
+        Бесплатная<br />
+        <span>онлайн&nbsp;CRM</span>
+      </h1>
+
+      <p class="crm-subtitle">
+        Управляйте клиентами, автоматизируйте работу менеджеров и увеличивайте продажи
+      </p>
+
+      <div class="crm-features" aria-label="Ключевые возможности CRM">
+        <button
+          type="button"
+          class="crm-feature-chip is-active"
+          aria-pressed="true"
+          data-feature-chip="lead-generation"
+        >
+          <span class="crm-feature-icon" aria-hidden="true">✓</span>
+          <span>Лидогенерация</span>
+        </button>
+        <button
+          type="button"
+          class="crm-feature-chip is-active"
+          aria-pressed="true"
+          data-feature-chip="sales-funnel"
+        >
+          <span class="crm-feature-icon" aria-hidden="true">✓</span>
+          <span>Воронка продаж</span>
+        </button>
+        <button
+          type="button"
+          class="crm-feature-chip is-active"
+          aria-pressed="true"
+          data-feature-chip="ai-assistant"
+        >
+          <span class="crm-feature-icon" aria-hidden="true">✓</span>
+          <span>AI-помощник</span>
+        </button>
+      </div>
+
+      <a
+        href="https://www.bitrix24.ru/create.php?coupon=autodemo-crm&b24_type=crm"
+        class="crm-btn"
+      >
+        ПОЛУЧИТЬ БЕСПЛАТНО
+      </a>
+
+      <div class="crm-trust" aria-label="Преимущества CRM">
+        <div>
+          <span class="trust-icon" aria-hidden="true">🛡</span>
+          <div>
+            <b>Бесплатно</b>
+            навсегда
+          </div>
+        </div>
+
+        <div>
+          <span class="trust-icon" aria-hidden="true">🏢</span>
+          <div>
+            <b>15 000 000+</b>
+            компаний
+          </div>
+        </div>
+
+        <div>
+          <span class="trust-icon" aria-hidden="true">☁</span>
+          <div>
+            <b>Облако</b>
+            и коробка
+          </div>
+        </div>
+
+        <div>
+          <span class="trust-icon" aria-hidden="true">🔗</span>
+          <div>
+            <b>5 670+</b>
+            интеграций
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="crm-hero-image">
+      <span class="crm-screen-ai-badge" aria-hidden="true">AI CRM</span>
+      <img
+        src="https://www.bitrix24.ru/upload/landing/16b/7u99sbab2ahnhrx3xt9gx8w8whha6ibi.png?1777968076917"
+        alt="Интерфейс CRM Битрикс24"
+      />
+    </div>
+  </div>
+</section>
+
+<script>
+  (function () {
+    function useState(initialState) {
+      var state = Object.assign({}, initialState);
+
+      return [
+        function getState(key) {
+          return state[key];
+        },
+        function setState(key, nextValue) {
+          state[key] =
+            typeof nextValue === "function" ? nextValue(state[key]) : nextValue;
+
+          return state[key];
+        },
+      ];
+    }
+
+    var featureState = useState({
+      "lead-generation": true,
+      "sales-funnel": true,
+      "ai-assistant": true,
+    });
+    var getFeatureActive = featureState[0];
+    var setFeatureActive = featureState[1];
+    var chips = document.querySelectorAll("[data-feature-chip]");
+
+    chips.forEach(function (chip) {
+      chip.addEventListener("click", function () {
+        var featureName = chip.getAttribute("data-feature-chip");
+        var isActive = setFeatureActive(featureName, function (currentValue) {
+          return !currentValue;
+        });
+
+        chip.classList.toggle("is-active", isActive);
+        chip.setAttribute("aria-pressed", String(getFeatureActive(featureName)));
+      });
+    });
+  })();
+</script>
+
+<style>
+  .crm-hero-custom,
+  .crm-hero-custom * {
+    box-sizing: border-box;
+  }
+
+  .crm-hero-custom {
+    --crm-blue: #2f73ff;
+    --crm-text: #111827;
+    --crm-muted: #4b5563;
+    --crm-max-width: 1180px;
+    --crm-copy-width: 960px;
+
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    background:
+      radial-gradient(circle at 50% 0%, rgba(80, 169, 255, 0.18) 0, rgba(80, 169, 255, 0) 34%),
+      linear-gradient(180deg, #f5fbff 0%, #ffffff 100%);
+    padding: clamp(28px, 4.2vw, 64px) clamp(16px, 3.5vw, 40px) clamp(42px, 5vw, 72px);
+    color: var(--crm-text);
+    overflow: hidden;
+  }
+
+  .crm-hero-inner {
+    width: 100%;
+    max-width: var(--crm-max-width);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(34px, 5vw, 64px);
+    text-align: center;
+  }
+
+  .crm-hero-content {
+    width: 100%;
+    max-width: var(--crm-copy-width);
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .crm-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    margin-bottom: clamp(18px, 3vw, 28px);
+    padding: 10px 20px;
+    border: 1px solid #42b7ff;
+    border-radius: 999px;
+    color: #2574ff;
+    font-size: clamp(14px, 1.4vw, 16px);
+    font-weight: 700;
+    background: rgba(255, 255, 255, 0.76);
+    text-decoration: none;
+    transition: all 0.25s ease;
+    white-space: nowrap;
+    box-shadow: 0 8px 26px rgba(47, 115, 255, 0.08);
+  }
+
+  .crm-badge:hover {
+    background: var(--crm-blue);
+    color: #fff;
+    border-color: var(--crm-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(47, 115, 255, 0.22);
+  }
+
+  .crm-hero-content h1 {
+    max-width: 900px;
+    margin: 0 0 clamp(18px, 2.8vw, 26px);
+    font-size: clamp(42px, 7.2vw, 96px);
+    line-height: clamp(0.92em, calc(0.87em + 0.28vw), 0.98em);
+    font-weight: 900;
+    letter-spacing: -0.045em;
+    overflow-wrap: normal;
+    text-wrap: balance;
+  }
+
+  .crm-hero-content h1 span {
+    color: var(--crm-blue);
+    white-space: nowrap;
+  }
+
+  .crm-subtitle {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+    font-size: clamp(18px, 1.8vw, 24px);
+    line-height: 1.55;
+    color: #1f2937;
+    text-wrap: balance;
+  }
+
+  .crm-features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    margin-top: clamp(20px, 3vw, 28px);
+    margin-bottom: clamp(28px, 4vw, 42px);
+  }
+
+  .crm-feature-chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-width: 0;
+    padding: 12px 18px;
+    border: 1px solid #d7e7ff;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.78);
+    color: #1f2937;
+    font: inherit;
+    font-size: clamp(14px, 1.4vw, 15px);
+    font-weight: 600;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 14px rgba(40, 116, 255, 0.06);
+    transition:
+      background 0.22s ease,
+      border-color 0.22s ease,
+      color 0.22s ease,
+      box-shadow 0.22s ease,
+      transform 0.22s ease;
+  }
+
+  .crm-feature-chip:hover {
+    border-color: #9cc7ff;
+    background: rgba(255, 255, 255, 0.94);
+    box-shadow: 0 8px 20px rgba(40, 116, 255, 0.12);
+    transform: translateY(-1px);
+  }
+
+  .crm-feature-chip:active {
+    transform: translateY(0);
+  }
+
+  .crm-feature-chip:focus-visible {
+    outline: 3px solid rgba(47, 115, 255, 0.28);
+    outline-offset: 3px;
+  }
+
+  .crm-feature-chip:not(.is-active) {
+    border-color: #e5edf7;
+    background: rgba(255, 255, 255, 0.58);
+    color: #6b7280;
+    box-shadow: 0 3px 10px rgba(31, 41, 55, 0.04);
+  }
+
+  .crm-feature-chip:not(.is-active):hover {
+    border-color: #cbd5e1;
+    background: rgba(255, 255, 255, 0.86);
+    color: #4b5563;
+  }
+
+  .crm-feature-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #f8fbff;
+    border: 1px solid #d7e7ff;
+    color: #9ca3af;
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition:
+      background 0.22s ease,
+      border-color 0.22s ease,
+      color 0.22s ease;
+  }
+
+  .crm-feature-chip.is-active .crm-feature-icon {
+    border-color: transparent;
+    background: linear-gradient(135deg, var(--crm-blue) 0%, #5d9bff 100%);
+    color: #fff;
+  }
+
+  .crm-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: min(100%, 320px);
+    min-height: 64px;
+    padding: 18px 26px;
+    border-radius: 999px;
+    background: #b6ff00;
+    color: #111;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: clamp(16px, 1.6vw, 18px);
+    line-height: 1.2;
+    font-weight: 800;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    margin-bottom: clamp(30px, 4vw, 44px);
+  }
+
+  .crm-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(138, 220, 0, 0.35);
+  }
+
+  .crm-btn:active {
+    transform: translateY(0);
+  }
+
+  .crm-trust {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: clamp(14px, 2.2vw, 24px);
+    align-items: stretch;
+    justify-content: center;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .crm-trust > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-width: 0;
+    padding: 14px 12px;
+    border: 1px solid rgba(215, 231, 255, 0.78);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.66);
+    font-size: clamp(14px, 1.35vw, 15px);
+    color: var(--crm-muted);
+    box-shadow: 0 8px 24px rgba(32, 94, 171, 0.05);
+  }
+
+  .crm-trust > div > div {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    line-height: 1.2;
+    text-align: left;
+  }
+
+  .crm-trust b {
+    display: block;
+    color: var(--crm-text);
+    margin-bottom: 2px;
+  }
+
+  .trust-icon {
+    width: 20px;
+    min-width: 20px;
+    display: flex;
+    justify-content: center;
+    font-size: 18px;
+    line-height: 1;
+    text-align: center;
+  }
+
+  .crm-hero-image {
+    position: relative;
+    width: 100%;
+    max-width: 1180px;
+    min-width: 0;
+    margin: 0 auto;
+  }
+
+  .crm-hero-image img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: clamp(22px, 3vw, 34px);
+    filter: drop-shadow(0 28px 45px rgba(38, 114, 255, 0.22));
+  }
+
+  .crm-screen-ai-badge {
+    position: absolute;
+    z-index: 2;
+    top: clamp(14px, 2vw, 24px);
+    right: clamp(14px, 2.4vw, 30px);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 9px 14px;
+    border: 1px solid rgba(47, 115, 255, 0.22);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.88);
+    color: var(--crm-blue);
+    font-size: clamp(12px, 1.3vw, 14px);
+    font-weight: 800;
+    line-height: 1;
+    box-shadow: 0 12px 30px rgba(47, 115, 255, 0.16);
+    backdrop-filter: blur(10px);
+  }
+
+  @media (max-width: 900px) {
+    .crm-hero-custom {
+      --crm-copy-width: 860px;
+    }
+
+    .crm-trust {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      max-width: 620px;
+    }
+
+    .crm-hero-image {
+      max-width: 820px;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .crm-hero-custom {
+      padding-right: 14px;
+      padding-left: 14px;
+    }
+
+    .crm-badge,
+    .crm-btn {
+      width: 100%;
+    }
+
+    .crm-badge {
+      white-space: normal;
+      text-align: center;
+    }
+
+    .crm-hero-content h1 {
+      font-size: clamp(38px, 13vw, 56px);
+      letter-spacing: -0.04em;
+    }
+
+    .crm-features {
+      gap: 10px;
+    }
+
+    .crm-feature-chip {
+      width: min(100%, 280px);
+    }
+
+    .crm-trust {
+      grid-template-columns: 1fr;
+      max-width: 360px;
+    }
+
+    .crm-trust > div {
+      justify-content: flex-start;
+      text-align: left;
+    }
+
+    .crm-screen-ai-badge {
+      top: 10px;
+      right: 10px;
+      padding: 7px 10px;
+    }
+  }
+
+  @media (max-width: 380px) {
+    .crm-hero-content h1 {
+      font-size: 36px;
+    }
+
+    .crm-feature-chip {
+      width: 100%;
+    }
+  }
+</style>
